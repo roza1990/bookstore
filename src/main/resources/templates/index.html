@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/author/add">Add Author</a> | <a href="/book/add">Add Book</a>
+
+<br>
+<h4> List of Authors,<br>Please click to get list of books by author </h4>
+<ul>
+    <li th:each="author : ${authors}">
+        <a th:href="@{/book/byAuthor(authorId=${author.id})}" th:text="${author.name + author.surname}"></a>
+    </li>
+</ul>
+
+<h4>List of Books</h4>
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>title</td>
+        <td>description</td>
+        <td>Author.name</td>
+        <td>Author.surname</td>
+        <td>Action</td>
+    </tr>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.description}"></td>
+        <td th:text="${book.author.name}"></td>
+        <td th:text="${book.author.surname}"></td>
+        <td><a th:href="@{/book/delete(id=${book.id})}">Delete</a></td>
+        <td><a th:href="@{/book/edit(id=${book.id})}">Edit</a></td>
+    </tr>
+</table>
+
+
+<!--<table border="1">-->
+    <!--<tr>-->
+        <!--<td>AuthorName</td>-->
+        <!--<td>AuthorSurname</td>-->
+        <!--<td>AuthorEmail</td>-->
+        <!--<td>AuthorBooks</td>-->
+    <!--</tr>-->
+    <!--<tr th:each="a: ${authors}">-->
+        <!--<td th:text="${a.name}"></td>-->
+        <!--<td th:text="${a.surname}"></td>-->
+        <!--<td th:text="${a.email}"></td>-->
+        <!--&lt;!&ndash;<td><span th:each="b: ${a.books}" th:text="${b.title + ' '}"></span></td>&ndash;&gt;-->
+    <!--</tr>-->
+<!--</table>-->
+
+</body>
+</html>

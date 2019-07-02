@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+    <form th:action="@{/book/add}" method="post"  th:object="${book}">
+        <input  type="hidden" placeholder="id" th:field="*{id}">
+
+        <span th:errors="*{title}" class="error"></span><br>
+    <input type="text" th:field="*{title}" placeholder="title"> <br>
+
+        <span th:errors="*{description}" class="error"></span><br>
+    <input type="text" th:field="*{description}" placeholder="description"> <br>
+        <span th:errors="*{author.id}" class="error"></span><br>
+    Author: <select th:field="*{author.id}" ><br>
+    <option th:each="a : ${authors}" th:value="${a.id}" th:text="${a.name + ' ' + a.surname}">
+    </option>
+</select><br>
+
+
+
+    <input type="submit" value="Add"> <br>
+</form>
+</body>
+</html>
