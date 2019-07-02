@@ -10,7 +10,7 @@
         color: red;
     }
 </style>
-
+<h4>Add Book</h4>
     <form th:action="@{/book/add}" method="post"  th:object="${book}">
         <input  type="hidden" placeholder="id" th:field="*{id}">
 

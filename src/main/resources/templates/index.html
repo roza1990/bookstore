@@ -23,7 +23,8 @@
         <td>description</td>
         <td>Author.name</td>
         <td>Author.surname</td>
-        <td>Action</td>
+        <td style="color:red">Delete</td>
+        <td style="color:green">Edit</td>
     </tr>
     <tr th:each="book : ${books}">
         <td th:text="${book.id}"></td>

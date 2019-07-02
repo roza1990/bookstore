@@ -6,8 +6,15 @@
 </head>
 <body>
 
+<style>
+    .error {
+        color: red;
+    }
+</style>
+<h3>Add Author </h3>
 <form th:action="@{/author/add}"  method="post">
-        <input type="text" th:field="*{name}" placeholder="name"> <br>
+
+        <input type="text" name="name" placeholder="name"> <br>
         <input type="text" name="surname" placeholder="surname"> <br>
         <input type="text" name="email" placeholder="email"> <br>
         <input type="text" name="age" placeholder="age"> <br>
