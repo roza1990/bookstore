@@ -37,21 +37,22 @@
     </tr>
 </table>
 
-
-<!--<table border="1">-->
-    <!--<tr>-->
-        <!--<td>AuthorName</td>-->
-        <!--<td>AuthorSurname</td>-->
-        <!--<td>AuthorEmail</td>-->
-        <!--<td>AuthorBooks</td>-->
-    <!--</tr>-->
-    <!--<tr th:each="a: ${authors}">-->
-        <!--<td th:text="${a.name}"></td>-->
-        <!--<td th:text="${a.surname}"></td>-->
-        <!--<td th:text="${a.email}"></td>-->
-        <!--&lt;!&ndash;<td><span th:each="b: ${a.books}" th:text="${b.title + ' '}"></span></td>&ndash;&gt;-->
-    <!--</tr>-->
-<!--</table>-->
+<hr>
+<h3>Authors</h3>
+<table border="1">
+    <tr>
+        <td>AuthorName</td>
+        <td>AuthorSurname</td>
+        <td>AuthorEmail</td>
+        <td>AuthorBooks</td>
+    </tr>
+    <tr th:each="a: ${authors}">
+        <td th:text="${a.name}"></td>
+        <td th:text="${a.surname}"></td>
+        <td th:text="${a.email}"></td>
+        <td><span th:each="b: ${a.books}" th:text="${b.title + ' ,'}"></span></td>
+    </tr>
+</table>
 
 </body>
 </html>
