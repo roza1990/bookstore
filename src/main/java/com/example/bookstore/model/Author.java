@@ -34,5 +34,8 @@ public class Author {
     @Column
    
     private int age;
+    
+     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    List<Book> books;
 
 }
